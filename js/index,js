@@ -1,0 +1,35 @@
+function dividirGasto() {
+    // Pedir los datos al usuario
+    var nombre = prompt("Ingrese su nombre:");
+    var tipoGasto = prompt("Ingrese el tipo de gasto:");
+    var montoGasto = parseFloat(prompt("Ingrese el monto del gasto:"));
+    var cantidadPersonas = parseInt(prompt("Ingrese la cantidad de personas:"));
+    var incluirPropina = prompt("¿Desea incluir propina? (Sí/No)") == "si";
+  
+    // Calcular el monto de la propina si es necesario
+    var montoPropina = 0;
+     // Calcular el 10% del monto del gasto
+    if (incluirPropina) {
+      montoPropina = montoGasto * 0.1;
+      //console.log(`Se incluyó una propina de $${montoPropina}.`);
+    }
+  
+    // Calcular el gasto total incluyendo la propina
+    var gastoTotal = montoGasto + montoPropina;
+  
+    // Calcular el dinero que debe pagar cada persona
+    var pagoPorPersona = gastoTotal / cantidadPersonas;
+
+    // Mostrar el resultado en la consola
+    console.log( nombre + ", debes pagar $" + pagoPorPersona + " por " + tipoGasto );
+ 
+  }
+  
+  // Ejecutar la función nuevamente
+  dividirGasto();
+  
+  // Preguntar al usuario si tiene más datos para cargar (Bucle)
+  while (prompt("¿Desea cargar más datos? (Sí/No)") == "si") {
+    dividirGasto();
+  }
+  
